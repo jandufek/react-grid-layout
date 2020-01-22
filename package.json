@@ -93,7 +93,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && make lint && make test"
+      "pre-commit": "lint-staged && make lint && make test",
+      "post-merge": "make build &&  git add dist/* && git commit dist/* -m 'Autocommit dist files'"
     }
   }
 }
