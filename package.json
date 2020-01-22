@@ -95,7 +95,7 @@
     "hooks": {
       "pre-commit": "lint-staged && make lint && make test",
       "post-merge": "make build && git add dist/*",
-      "pre-push": "[[ `git diff` != '' ]] && echo 'There are updated dist files, please commit them before push' && exit 1"
+      "pre-push": "if [[ `git diff` != '' ]]; then echo 'There are updated dist files, please commit them before push' && exit 1; else exit 0; fi"
     }
   }
 }
