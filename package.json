@@ -94,7 +94,8 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged && make lint && make test",
-      "post-merge": "make build && git add dist/* && git commit dist/* -m 'Autocommit dist files'"
+      "post-merge": "make build && git add dist/*",
+      "pre-push": "[[ `git diff` != '' ]] && echo 'There are updated dist files, please commit them before push' && exit 1"
     }
   }
 }
